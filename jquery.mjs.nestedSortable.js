@@ -115,6 +115,14 @@
 			return $.ui.sortable.prototype._destroy.apply(this, arguments);
 		},
 
+    _createPlaceholder: function() {
+      var ret = $.ui.sortable.prototype._createPlaceholder.apply(this, arguments);
+      if (this.options.placeholderContent) {
+        this.placeholder.html(this.options.placeholderContent);
+      }
+      return ret;
+    },
+
 		_mouseDrag: function(event) {
 			var i,
 				item,
